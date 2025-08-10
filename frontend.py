@@ -108,7 +108,7 @@ class CVMakerFrontend(CVMakerBackend):
 
         if final_results:
             st.subheader("📄 Final CV Content")
-            st.text_area("Generated CV", value=final_results, height=400)
+            st.markdown(final_results)
 
             pdf_buffer = BytesIO()
             doc = SimpleDocTemplate(pdf_buffer)

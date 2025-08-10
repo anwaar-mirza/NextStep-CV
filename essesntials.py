@@ -57,6 +57,8 @@ cv_prompt = """
 8. Use bold and italic heading where needed.
 9. Return Only CV, other text, instructions, details are not required.
 10. Add highlighted Person name on the Top of CV.
+11. Don't add any other title on the top of CV
+12. Don't add projects in experience scetion.
 </Instructions>
 <OutputFormat>
 Return the final CV in structured plain text, ready for formatting into a PDF or Word document.

@@ -1,10 +1,11 @@
 import streamlit as st
 from essesntials import * 
 from backend import CVMakerBackend
-from io import BytesIO
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from bs4 import BeautifulSoup
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, ListFlowable, ListItem
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
+from io import BytesIO
 from markdown import markdown
 
 class CVMakerFrontend(CVMakerBackend):
@@ -108,25 +109,32 @@ class CVMakerFrontend(CVMakerBackend):
 
         if final_results:
             st.subheader("📄 Final CV Content")
-            st.markdown(final_results)
+            st.text_area("Generated CV", value=final_results, height=400)
 
             pdf_buffer = BytesIO()
             doc = SimpleDocTemplate(pdf_buffer)
             styles = getSampleStyleSheet()
 
-            title_style = ParagraphStyle(
-                "TitleStyle",
-                parent=styles["Title"],
-                alignment=TA_CENTER,
-                fontSize=20,
-                spaceAfter=20
-            )
+            title_style = ParagraphStyle("TitleStyle", parent=styles["Title"], alignment=TA_CENTER, fontSize=20, spaceAfter=20)
+            heading_style = ParagraphStyle("HeadingStyle", parent=styles["Heading2"], spaceAfter=10)
+            normal_style = styles["Normal"]
 
             story = [Paragraph("🚀 NextStep CV", title_style), Spacer(1, 12)]
 
-        # Convert Markdown to HTML
+        # Convert markdown to HTML and parse it
             html_content = markdown(final_results)
-            story.append(Paragraph(html_content, styles["Normal"]))
+            soup = BeautifulSoup(html_content, "html.parser")
+
+            for element in soup.children:
+                if element.name and element.name.startswith("h"):
+                    story.append(Paragraph(element.get_text(), heading_style))
+                elif element.name == "p":
+                    story.append(Paragraph(element.get_text(), normal_style))
+                    story.append(Spacer(1, 6))
+                elif element.name in ["ul", "ol"]:
+                    items = [ListItem(Paragraph(li.get_text(), normal_style)) for li in element.find_all("li")]
+                    story.append(ListFlowable(items, bulletType="bullet"))
+                    story.append(Spacer(1, 6))
 
             doc.build(story)
             pdf_buffer.seek(0)
@@ -139,7 +147,6 @@ class CVMakerFrontend(CVMakerBackend):
             )
         else:
             st.error("⚠ No CV content to display. Please fill out the form first.")
-
 
 
 

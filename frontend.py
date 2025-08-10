@@ -1,6 +1,10 @@
 import streamlit as st
 from essesntials import * 
 from backend import CVMakerBackend
+from io import BytesIO
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from reportlab.lib.enums import TA_CENTER
 
 class CVMakerFrontend(CVMakerBackend):
     def __init__(self):
@@ -97,8 +101,48 @@ class CVMakerFrontend(CVMakerBackend):
             else:
                 st.error("⚠ Please fill all fields. Type 'No' if not applicable.")
             return self.chain.invoke({"input": final_string})
+    
+    def final_output(self):
+        final_results = self.combine_all()
+
+        if final_results:
+            # Show result on screen
+            st.subheader("📄 Final CV Content")
+            st.text_area("Generated CV", value=final_results, height=400)
+
+        # Create PDF from final_results
+            pdf_buffer = BytesIO()
+            doc = SimpleDocTemplate(pdf_buffer)
+            styles = getSampleStyleSheet()
+
+            title_style = ParagraphStyle(
+                "TitleStyle",
+                parent=styles["Title"],
+                alignment=TA_CENTER,
+                fontSize=20,
+                spaceAfter=20
+            )
+
+        # Build PDF content
+            story = [Paragraph("🚀 NextStep CV", title_style), Spacer(1, 12)]
+            for section in final_results.split("\n\n"):
+                story.append(Paragraph(section.replace("\n", "<br/>"), styles["Normal"]))
+                story.append(Spacer(1, 12))
+
+            doc.build(story)
+            pdf_buffer.seek(0)
+
+        # Download button
+            st.download_button(
+                label="⬇ Download CV as PDF",
+                data=pdf_buffer,
+                file_name="NextStep_CV.pdf",
+                mime="application/pdf"
+            )
+        else:
+            st.error("⚠ No CV content to display. Please fill out the form first.")
+
 
 
 bot = CVMakerFrontend()
-results = bot.combine_all()
-st.write(results)
+bot.final_output()

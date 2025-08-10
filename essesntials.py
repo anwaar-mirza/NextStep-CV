@@ -60,5 +60,6 @@ cv_prompt = """
 <OutputFormat>
 Return the final CV in structured plain text, ready for formatting into a PDF or Word document.
 </OutputFormat>
+<Input>{input}</Input>
 </Prompt>
 """

@@ -96,6 +96,7 @@ class CVMakerFrontend(CVMakerBackend):
 
             else:
                 st.error("⚠ Please fill all fields. Type 'No' if not applicable.")
+        print(final_string)
         return self.chain.invoke({"input": final_string})
 
 

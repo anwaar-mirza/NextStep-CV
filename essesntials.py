@@ -56,7 +56,7 @@ cv_prompt = """
 7. Use bullet points for lists and clear section headings.
 8. Use bold and italic heading where needed.
 9. Return Only CV, other text, instructions, details are not required.
-10. Add name in large fonts on the Top of CV.
+10. Add highlighted Person name on the Top of CV.
 </Instructions>
 <OutputFormat>
 Return the final CV in structured plain text, ready for formatting into a PDF or Word document.

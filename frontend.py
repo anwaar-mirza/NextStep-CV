@@ -115,19 +115,26 @@ class CVMakerFrontend(CVMakerBackend):
             doc = SimpleDocTemplate(pdf_buffer)
             styles = getSampleStyleSheet()
 
-            title_style = ParagraphStyle("TitleStyle", parent=styles["Title"], alignment=TA_CENTER, fontSize=20, spaceAfter=20)
-            heading_style = ParagraphStyle("HeadingStyle", parent=styles["Heading2"], spaceAfter=10)
+            title_style = ParagraphStyle(
+                "TitleStyle", parent=styles["Title"], alignment=TA_CENTER, fontSize=20, spaceAfter=20
+            )
+            heading_style = ParagraphStyle(
+                "HeadingStyle", parent=styles["Heading2"], spaceAfter=10, fontSize=14
+            )
             normal_style = styles["Normal"]
 
-            story = [Paragraph("", title_style), Spacer(1, 12)]
+        # Extract first line (Name) as title
+            name_line = final_results.split("\n", 1)[0].strip()
+            story = [Paragraph(name_line, title_style), Spacer(1, 12)]
 
-        # Convert markdown to HTML and parse it
+        # Convert markdown to HTML
             html_content = markdown(final_results)
             soup = BeautifulSoup(html_content, "html.parser")
 
             for element in soup.children:
                 if element.name and element.name.startswith("h"):
                     story.append(Paragraph(element.get_text(), heading_style))
+                    story.append(Spacer(1, 6))
                 elif element.name == "p":
                     story.append(Paragraph(element.get_text(), normal_style))
                     story.append(Spacer(1, 6))
@@ -147,7 +154,6 @@ class CVMakerFrontend(CVMakerBackend):
             )
         else:
             st.error("⚠ No CV content to display. Please fill out the form first.")
-
 
 
 bot = CVMakerFrontend()

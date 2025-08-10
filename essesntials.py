@@ -64,6 +64,7 @@ cv_prompt = """
 <Instruction>Never include extra commentary or explanations — return only the final CV.</Instruction>
 <Instruction>Ensure proper new lines, indentation, and spacing for clean formatting.</Instruction>
 <Instruction>Do not use tables or images — only plain text format.</Instruction>
+<Instruction>Return output in proper markdown.</Instruction> 
 </Instructions>
 
 <OutputFormat>

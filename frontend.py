@@ -5,6 +5,7 @@ from io import BytesIO
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
+from markdown import markdown
 
 class CVMakerFrontend(CVMakerBackend):
     def __init__(self):
@@ -106,11 +107,9 @@ class CVMakerFrontend(CVMakerBackend):
         final_results = self.combine_all()
 
         if final_results:
-            # Show result on screen
             st.subheader("📄 Final CV Content")
             st.text_area("Generated CV", value=final_results, height=400)
 
-        # Create PDF from final_results
             pdf_buffer = BytesIO()
             doc = SimpleDocTemplate(pdf_buffer)
             styles = getSampleStyleSheet()
@@ -123,16 +122,15 @@ class CVMakerFrontend(CVMakerBackend):
                 spaceAfter=20
             )
 
-        # Build PDF content
             story = [Paragraph("🚀 NextStep CV", title_style), Spacer(1, 12)]
-            for section in final_results.split("\n\n"):
-                story.append(Paragraph(section.replace("\n", "<br/>"), styles["Normal"]))
-                story.append(Spacer(1, 12))
+
+        # Convert Markdown to HTML
+            html_content = markdown(final_results)
+            story.append(Paragraph(html_content, styles["Normal"]))
 
             doc.build(story)
             pdf_buffer.seek(0)
 
-        # Download button
             st.download_button(
                 label="⬇ Download CV as PDF",
                 data=pdf_buffer,
@@ -141,6 +139,7 @@ class CVMakerFrontend(CVMakerBackend):
             )
         else:
             st.error("⚠ No CV content to display. Please fill out the form first.")
+
 
 
 

@@ -119,7 +119,7 @@ class CVMakerFrontend(CVMakerBackend):
             heading_style = ParagraphStyle("HeadingStyle", parent=styles["Heading2"], spaceAfter=10)
             normal_style = styles["Normal"]
 
-            story = [Paragraph("🚀 NextStep CV", title_style), Spacer(1, 12)]
+            story = [Paragraph("", title_style), Spacer(1, 12)]
 
         # Convert markdown to HTML and parse it
             html_content = markdown(final_results)

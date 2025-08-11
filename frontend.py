@@ -78,9 +78,7 @@ class CVMakerFrontend(CVMakerBackend):
             )
             normal_style = styles["Normal"]
 
-            # Extract Name for title
-            name_line = final_results.splitlines()[0].strip("# ").strip()
-            story = [Paragraph(" ", title_style), Spacer(1, 12)]
+            story = []
 
             # Convert markdown to HTML
             html_content = markdown(final_results, extras=["tables", "fenced-code-blocks"])

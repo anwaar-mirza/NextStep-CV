@@ -24,7 +24,6 @@ cv_prompt = """
 8. Reference</Instruction>
 <Instruction>NEVER change the section order or headings.</Instruction>
 <Instruction>ALL section headings must be bold and uppercase, with one blank line before and after.</Instruction>
-<Instruction>Full name must be in bold uppercase and centered at the very top.</Instruction>
 <Instruction>Contact details must be listed each on a separate line, starting with a bold label (e.g., **Email:** example@example.com).</Instruction>
 <Instruction>Summary must be 1–3 concise sentences using action-oriented, professional language.</Instruction>
 <Instruction>Indent all top-level bullet points with EXACTLY 5 spaces before the bullet symbol (•).</Instruction>

@@ -40,20 +40,20 @@ Linkedin: linkedin.com/in/name        Github:github.com/helo
 **Summary:** Briefly describe your background and experience.
 --------------------------------------------------------------
 **Education:**
-\t• **Bachelor’s Degree in Computer Science**, XYZ University, USA, 2018-202
-\t• **Master’s Degree in Data Science**, ABC University, USA, 2020-202
+\n• **Bachelor’s Degree in Computer Science**, XYZ University, USA, 2018-202
+\n• **Master’s Degree in Data Science**, ABC University, USA, 2020-202
 --------------------------------------------------------------
 **Experience:**
-\t• **Software Developer**, ABC Company, USA, 2020-Present
-\t• Developed a real-time data dashboard using Python and AWS.
-\t• Collaborated with a cross-functional team to launch a new product.
+\n• **Software Developer**, ABC Company, USA, 2020-Present
+\n• Developed a real-time data dashboard using Python and AWS.
+\n• Collaborated with a cross-functional team to launch a new product.
 --------------------------------------------------------------
 **Projects:**
-\t• **Personal Project:** Developed a machine learning model using TensorFlow and Keras.
-\t• **Collaborative Project:** Contributed to an open-source project on GitHub.
+\n• **Personal Project:** Developed a machine learning model using TensorFlow and Keras.
+\n• **Collaborative Project:** Contributed to an open-source project on GitHub.
 --------------------------------------------------------------
 **Reference:**
-\t• Available upon request.
+\n• Available upon request.
 </Example>
 </Examples>
 

@@ -15,7 +15,7 @@ class CVMakerBackend:
         self.chain = prompt | llm | parser
 
     def crate_llm(self):
-        return ChatGroq(model='llama-3.1-8b-instant')
+        return ChatGroq(model='llama-3.3-70b-versatile')
     
     def create_prompt(self):
         return ChatPromptTemplate.from_template(cv_prompt)

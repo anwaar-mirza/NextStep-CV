@@ -39,69 +39,25 @@ class CVMakerFrontend(CVMakerBackend):
             unsafe_allow_html=True
         )
 
-    def get_contact_details(self):
-        return st.text_area("📌 Personal Details", placeholder=personal_details, height=200)
+    def get_person_details(self):
+        return st.text_area("📌 Enter Your Details", placeholder=personal_details, height=500)
 
-    def get_education(self):
-        return st.text_area("🎓 Education Background", placeholder=education.title(), height=200)
-
-    def get_experience(self):
-        return st.text_area("💼 Work Experience", placeholder=experience.title(), height=200)
-
-    def get_projects(self):
-        return st.text_area("🛠 Major Projects", placeholder=projects.title(), height=200)
-
-    def get_skills(self):
-        return st.text_area("⚡ Skills", placeholder=skills.title(), height=200)
-
-    def get_programming_languages(self):
-        return st.text_area("💻 Programming Languages", placeholder=programing_languages, height=150)
-
-    def get_reference(self):
-        return st.text_input("📜 Reference", placeholder=reference)
 
     def combine_all(self):
         self.front_page_title()
 
         with st.form("cv_form"):
-            pd = self.get_contact_details()
-            edu = self.get_education()
-            exp = self.get_experience()
-            pro = self.get_projects()
-            sk = self.get_skills()
-            pl = self.get_programming_languages()
-            ref = self.get_reference()
+            ps = self.get_person_details()
 
             submit = st.form_submit_button("✅ Generate CV")
 
         if submit:
-            if pd and edu and exp and pro and sk and pl and ref:
+            if ps:
                 # Prepare CV content
-                final_string = f"""
-                Personal Details:
-                {pd}
-
-                Education:
-                {edu}
-
-                Experience:
-                {exp}
-
-                Projects:
-                {pro}
-
-                Skills:
-                {sk}
-
-                Programming Languages:
-                {pl}
-
-                Reference:
-                {ref}
-                """
+                final_string = f"All Details: {ps}"
 
             else:
-                st.error("⚠ Please fill all fields. Type 'No' if not applicable.")
+                st.error("🚨⚠️ Please fill the field to generate CV.")
             return self.chain.invoke({"input": final_string})
     
     def final_output(self):
@@ -109,7 +65,7 @@ class CVMakerFrontend(CVMakerBackend):
 
         if final_results:
             st.subheader("📄 Final CV Content")
-            st.text_area("Generated CV", value=final_results, height=400)
+            st.markdown(final_results)
 
             pdf_buffer = BytesIO()
             doc = SimpleDocTemplate(pdf_buffer)

@@ -51,27 +51,27 @@ Tech enthusiast with a Bachelor’s degree in Computer Science and 4+ years of h
 
 **EXPERIENCE**  
 • **Senior Software Developer**, ABC Company, USA, 2020–Present  
-  - Developed a real-time data dashboard using Python and AWS.  
-  - Collaborated with a cross-functional team to launch a new product.  
-  - Worked with clients from finance to healthcare to e-commerce, solving problems and building impactful solutions.  
+    - Developed a real-time data dashboard using Python and AWS.  
+    - Collaborated with a cross-functional team to launch a new product.  
+    - Worked with clients from finance to healthcare to e-commerce, solving problems and building impactful solutions.  
 
 • **Software Developer**, DEF Company, USA, 2018–2020  
-  - Built a web scraping tool using Python and BeautifulSoup.  
-  - Contributed to an AI chatbot project using machine learning and natural language processing.  
+    - Built a web scraping tool using Python and BeautifulSoup.  
+    - Contributed to an AI chatbot project using machine learning and natural language processing.  
 
 **PROJECTS**  
-• **Real-time Data Dashboard** – Developed using Python and AWS.  
-• **Web Scraping Tool** – Built using Python and BeautifulSoup.  
-• **AI Chatbot** – Contributed using machine learning and NLP.  
-• **Personal ML Model** – Developed with TensorFlow and Keras.  
-• **Open-source Contribution** – Participated in a GitHub project.  
+    • **Real-time Data Dashboard** – Developed using Python and AWS.  
+    • **Web Scraping Tool** – Built using Python and BeautifulSoup.  
+    • **AI Chatbot** – Contributed using machine learning and NLP.  
+    • **Personal ML Model** – Developed with TensorFlow and Keras.  
+    • **Open-source Contribution** – Participated in a GitHub project.  
 
 **SKILLS & CERTIFICATIONS**  
-• Programming Languages: Python, JavaScript  
-• Databases: SQL  
-• Cloud Platforms: AWS, Azure  
-• Machine Learning: TensorFlow, Keras  
-• Certification: AWS Certified Developer  
+    • Programming Languages: Python, JavaScript  
+    • Databases: SQL  
+    • Cloud Platforms: AWS, Azure  
+    • Machine Learning: TensorFlow, Keras  
+    • Certification: AWS Certified Developer  
 
 **REFERENCE**  
 Available upon request.

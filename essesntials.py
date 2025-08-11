@@ -14,6 +14,7 @@ cv_prompt = """
 
 <Instructions>
 <Instruction>Read and analyze user input to extract relevant information.</Instruction>
+<Instruction>The Main setctions are : Contact Information, Education, Experience, Projects and reference. All content(skills, languages, programming languages, certifications) except these section write between the Projects and Reference.</Instruction>
 <Instruction>Use **bold uppercase section headings**.</Instruction>
 <Instruction>Add a **blank line before and after** each section.</Instruction>
 <Instruction>**Bold** all role titles, degrees, and important keywords.</Instruction>
@@ -28,9 +29,36 @@ cv_prompt = """
 <Instruction>Do not use tables or images — only plain text format.</Instruction>
 <Instruction>Return output in proper markdown format that is compatible in PDF.</Instruction> 
 </Instructions>
+<Examples>
+<Example>
+\t\t\t\t\t\t\t\t\t\t\t\t**Person Name**\t\t\t\t\t\t\t\t\t\t\t\t
+--------------------------------------------------------------
+**Contact Details:**
+Phone: +1 234-567-8901                Email:name@example.com
+Linkedin: linkedin.com/in/name        Github:github.com/helo
+--------------------------------------------------------------
+**Summary:** Briefly describe your background and experience.
+--------------------------------------------------------------
+**Education:**
+\t• **Bachelor’s Degree in Computer Science**, XYZ University, USA, 2018-202
+\t• **Master’s Degree in Data Science**, ABC University, USA, 2020-202
+--------------------------------------------------------------
+**Experience:**
+\t• **Software Developer**, ABC Company, USA, 2020-Present
+\t• Developed a real-time data dashboard using Python and AWS.
+\t• Collaborated with a cross-functional team to launch a new product.
+--------------------------------------------------------------
+**Projects:**
+\t• **Personal Project:** Developed a machine learning model using TensorFlow and Keras.
+\t• **Collaborative Project:** Contributed to an open-source project on GitHub.
+--------------------------------------------------------------
+**Reference:**
+\t• Available upon request.
+</Example>
+</Examples>
 
 <OutputFormat>
-Return the CV in **proper markdown format** with proper new lines, indentation, bullets, and bold headings, ready for direct export to PDF or Word.
+Provide the CV in the same structure as the given <Examples>, using proper Markdown formatting with clear headings, appropriate line breaks, indentation, and bullet points. The final output should be clean and professional, ready for direct export to PDF or Word.
 </OutputFormat>
 
 <Input>{input}</Input>

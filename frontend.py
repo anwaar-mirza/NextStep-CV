@@ -40,7 +40,7 @@ class CVMakerFrontend(CVMakerBackend):
         )
 
     def get_person_details(self):
-        return st.text_area("📌 Enter Your Details", placeholder=example, height=500)
+        return st.text_area("📌 Enter Your Details", placeholder=example, height=400)
 
 
     def combine_all(self):

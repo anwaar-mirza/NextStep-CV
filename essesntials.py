@@ -37,7 +37,6 @@ cv_prompt = """
 </Instructions>
 
 <Example>
-JOHANATHAN SMITH
 
 **Email:** john.smith@email.com  
 **Phone:** +1 234-567-8901  

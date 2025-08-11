@@ -80,7 +80,7 @@ class CVMakerFrontend(CVMakerBackend):
             normal_style = styles["Normal"]
 
         # Extract first line (Name) as title
-            name_line = final_results.split("\n", 1)[0].strip()
+            name_line = final_results.split("", 1)[0].strip()
             story = [Paragraph(name_line, title_style), Spacer(1, 12)]
 
         # Convert markdown to HTML

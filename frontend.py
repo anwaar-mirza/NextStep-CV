@@ -40,7 +40,7 @@ class CVMakerFrontend(CVMakerBackend):
         )
 
     def get_person_details(self):
-        return st.text_area("📌 Enter Your Details", placeholder=personal_details, height=500)
+        return st.text_area("📌 Enter Your Details", placeholder=example, height=500)
 
 
     def combine_all(self):
@@ -109,7 +109,7 @@ class CVMakerFrontend(CVMakerBackend):
                 mime="application/pdf"
             )
         else:
-            st.error("⚠ No CV content to display. Please fill out the form first.")
+            st.error("🚨⚠️ No CV content to display. Please fill out the form first.")
 
 
 bot = CVMakerFrontend()

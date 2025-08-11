@@ -14,7 +14,7 @@ cv_prompt = """
 
 <Instructions>
 <Instruction>STRICTLY follow the section order: 
-1. Full Name (centered, bold uppercase) 
+1. Full Name
 2. Contact Details
 3. Summary 
 4. Education 
@@ -37,6 +37,7 @@ cv_prompt = """
 </Instructions>
 
 <Example>
+JOHANATHAN SMITH
 
 **Email:** john.smith@email.com  
 **Phone:** +1 234-567-8901  

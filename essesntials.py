@@ -24,11 +24,10 @@ cv_prompt = """
 8. Reference</Instruction>
 <Instruction>NEVER change the section order or headings.</Instruction>
 <Instruction>ALL section headings must be bold and uppercase, with one blank line before and after.</Instruction>
-<Instruction>Full name must be in bold uppercase and centered at the very top.</Instruction>
 <Instruction>Contact details must be listed each on a separate line, starting with a bold label (e.g., **Email:** example@example.com).</Instruction>
-<Instruction>Summary must be 1–3 concise sentences using action-oriented, professional language.</Instruction>
+<Instruction>Summary must be 1–5 concise sentences using action-oriented, professional language.</Instruction>
 <Instruction>Use five spaces for indentation after the heading so that all bullet points align neatly in the same column for every section.</Instruction>
-<Instruction>Education and Experience must be in reverse chronological order, each entry starting with 4 spaces before the bullet (•) followed by bold degree/role title, institution/company, location, and date range.</Instruction>
+<Instruction>Education and Experience must be in reverse chronological order followed by bold degree/role title, institution/company, location, and date range.</Instruction>
 <Instruction>Projects must be separate from experience; each project have a bold title followed by a short description.</Instruction>
 <Instruction>All other information (skills, programming languages, tools, certifications, languages) goes between Projects and Reference in a single combined block, using 4 spaces before each bullet (•).</Instruction>
 <Instruction>Do NOT use tables, images, numbering, or personal pronouns. Use only plain text and bullet points.</Instruction>
@@ -52,13 +51,13 @@ Tech enthusiast with a Bachelor’s degree in Computer Science and 4+ years of h
 
 **EXPERIENCE**  
     • **Senior Software Developer**, ABC Company, USA, 2020–Present  
-        - Developed a real-time data dashboard using Python and AWS.  
-        - Collaborated with a cross-functional team to launch a new product.  
-        - Worked with clients from finance to healthcare to e-commerce, solving problems and building impactful solutions.  
+        1- Developed a real-time data dashboard using Python and AWS.  
+        2- Collaborated with a cross-functional team to launch a new product.  
+        3- Worked with clients from finance to healthcare to e-commerce, solving problems and building impactful solutions.  
 
     • **Software Developer**, DEF Company, USA, 2018–2020  
-        - Built a web scraping tool using Python and BeautifulSoup.  
-        - Contributed to an AI chatbot project using machine learning and natural language processing.  
+        1- Built a web scraping tool using Python and BeautifulSoup.  
+        2- Contributed to an AI chatbot project using machine learning and natural language processing.  
 
 **PROJECTS**  
     • **Real-time Data Dashboard** – Developed using Python and AWS.  

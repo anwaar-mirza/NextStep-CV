@@ -6,7 +6,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, ListFlowabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.enums import TA_CENTER
 from io import BytesIO
-from markdown import markdown
+from markdown2 import markdown
 
 class CVMakerFrontend(CVMakerBackend):
     def __init__(self):
@@ -62,7 +62,6 @@ class CVMakerFrontend(CVMakerBackend):
     
     def final_output(self):
         final_results = self.combine_all()
-
         if final_results:
             st.subheader("📄 Final CV Content")
             st.markdown(final_results)
@@ -79,23 +78,23 @@ class CVMakerFrontend(CVMakerBackend):
             )
             normal_style = styles["Normal"]
 
-        # Extract first line (Name) as title
-            name_line = final_results.split(" ", 1)[0].strip()
+            # Extract Name for title
+            name_line = final_results.splitlines()[0].strip("# ").strip()
             story = [Paragraph(name_line, title_style), Spacer(1, 12)]
 
-        # Convert markdown to HTML
-            html_content = markdown(final_results)
+            # Convert markdown to HTML
+            html_content = markdown(final_results, extras=["tables", "fenced-code-blocks"])
             soup = BeautifulSoup(html_content, "html.parser")
 
             for element in soup.children:
                 if element.name and element.name.startswith("h"):
-                    story.append(Paragraph(element.get_text(), heading_style))
+                    story.append(Paragraph(element.decode_contents(), heading_style))
                     story.append(Spacer(1, 6))
                 elif element.name == "p":
-                    story.append(Paragraph(element.get_text(), normal_style))
+                    story.append(Paragraph(element.decode_contents(), normal_style))
                     story.append(Spacer(1, 6))
                 elif element.name in ["ul", "ol"]:
-                    items = [ListItem(Paragraph(li.get_text(), normal_style)) for li in element.find_all("li")]
+                    items = [ListItem(Paragraph(li.decode_contents(), normal_style)) for li in element.find_all("li")]
                     story.append(ListFlowable(items, bulletType="bullet"))
                     story.append(Spacer(1, 6))
 
@@ -110,7 +109,6 @@ class CVMakerFrontend(CVMakerBackend):
             )
         else:
             st.error("🚨⚠️ No CV content to display. Please fill out the form first.")
-
 
 bot = CVMakerFrontend()
 bot.final_output()

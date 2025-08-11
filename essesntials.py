@@ -36,12 +36,11 @@ cv_prompt = """
 </Instructions>
 
 <Example>
-JOHANATHAN SMITH
-
-**Email:** john.smith@email.com  
-**Phone:** +1 234-567-8901  
-**LinkedIn:** linkedin.com/in/johnsmith  
-**GitHub:** github.com/johnsmith  
+**Contact Information**
+    **Email:** john.smith@email.com  
+    **Phone:** +1 234-567-8901  
+    **LinkedIn:** linkedin.com/in/johnsmith  
+    **GitHub:** github.com/johnsmith  
 
 **SUMMARY**  
 Tech enthusiast with a Bachelor’s degree in Computer Science and 4+ years of hands-on experience in software development and data analysis.
